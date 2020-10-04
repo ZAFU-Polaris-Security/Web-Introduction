@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,97 +13,112 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-
     <style>
+        html {
+            overflow: hidden;
+        }
 
         body {
-            padding-top: 150px;
             padding-bottom: 40px;
             color: aqua;
             background: #222;
         }
-        .self-design{
-          padding: 10px;
-  border: 1px solid #ccc;
-  background:#000;
-  color:#fff;
-  margin: 20px auto;
+
+        .self-design {
+            padding: 10px;
+            border: 1px solid #ccc;
+            background: #000;
+            color: #fff;
+            margin: 20px auto;
 
 
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  -webkit-box-pack: center;
-  -webkit-box-align: center;
-  
-  display: -moz-box;
-  -moz-box-orient: horizontal;
-  -moz-box-pack: center;
-  -moz-box-align: center;
-  
-  display: -o-box;
-  -o-box-orient: horizontal;
-  -o-box-pack: center;
-  -o-box-align: center;
-  
-  display: -ms-box;
-  -ms-box-orient: horizontal;
-  -ms-box-pack: center;
-  -ms-box-align: center;
-  
-  display: box;
-  box-orient: horizontal;
-  box-pack: center;
-  box-align: center;
+            display: -webkit-box;
+            -webkit-box-orient: horizontal;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+
+            display: -moz-box;
+            -moz-box-orient: horizontal;
+            -moz-box-pack: center;
+            -moz-box-align: center;
+
+            display: -o-box;
+            -o-box-orient: horizontal;
+            -o-box-pack: center;
+            -o-box-align: center;
+
+            display: -ms-box;
+            -ms-box-orient: horizontal;
+            -ms-box-pack: center;
+            -ms-box-align: center;
+
+            display: box;
+            box-orient: horizontal;
+            box-pack: center;
+            box-align: center;
         }
-.container{
-  font-size:15px
-}
-       
-        
-        /* 响应式布局 */
 
-        
-            
+        .container {
+            font-size: 15px
+        }
+
+        *{
+            white-space: normal !important;
+        }
+        /* 响应式布局 */
     </style>
+    <script>
+        // $(".navbar-collapse li")
+        //获取url中的参数
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+    </script>
 
 </head>
 
 <body>
-<!-- 顶部导航 -->
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu-nav">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">切换导航</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html#" style="padding: 5px;"><img src="img/logo.png" alt="" height="100%"></a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html#">首页</a></li>
-                <li><a href="introduction.html">协会简介</a></li>
-                <li><a href="qfa.html">招新问题</a></li>
-                <li><a href="start-guide.html" >入门指南</a></li>
-                <li><a href="members.html" >主要成员</a></li>
-            </ul>
+    <!-- 顶部导航 -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="menu-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="//zafu-polaris.cn" style="padding: 5px;"><img src="img/logo.png" alt=""
+                        height="100%"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="anime" class="active"><a href="?page=anime">首页</a></li>
+                    <li class="introduction"><a href="?page=introduction">协会简介</a></li>
+                    <li class=""><a href="">招新问题</a></li>
+                    <li class=""><a href="">入门指南</a></li>
+                    <li class=""><a href="">主要成员</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
+    <script>
+        if (page=getUrlParam('page')) {
+            page='./content/'+page+'.html'
+        }else{
+            page='./content/anime.html'
+        }
+        document.write('<iframe id="contentFrame" src="'+page+'" width="100%"frameborder="0" scrolling="auto" style="height: calc(100vh - 51px);margin-top: 51px;"></iframe>');
+    </script>
+    
 
-<iframe src="./index-content">
-
-</iframe>
 
 
-   
-</div>
-<div style="position:fixed;bottom: 0px;color:#ccc;">
-    本页面创意与代码框架均来源于<a target="_blank" href="https://syc-2019--fxxy.repl.co/">成都信息工程大学三叶草安全小组招新页面</a>
-</div>
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>
