@@ -110,6 +110,7 @@
             </div>
         </div>
     </div>
+    <iframe id="contentFrame" src="" width="100%"frameborder="0" scrolling="auto" style="height: calc(100vh - 51px);margin-top: 51px;"></iframe>
     <script>
         if (page=getUrlParam('page')) {
             trustedPath=['anime','introduction']
@@ -122,7 +123,7 @@
         }else{
             page='./content/anime.html'
         }
-        document.write('<iframe id="contentFrame" src="'+page+'" width="100%"frameborder="0" scrolling="auto" style="height: calc(100vh - 51px);margin-top: 51px;"></iframe>');
+        document.getElementById('contentFrame').src=page;
     </script>
     
 
