@@ -69,6 +69,9 @@
         .navbar{
             background-color: #1E2022;
         }
+        body{
+            background-color: #1E2022;
+        }
     </style>
     <script>
         // $(".navbar-collapse li")
@@ -109,7 +112,13 @@
     </div>
     <script>
         if (page=getUrlParam('page')) {
-            page='./content/'+page+'.html'
+            trustedPath=['anime','introduction']
+            if (trustedPath.indexOf(page)>-1) {
+                page='./content/'+page+'.html'
+            }else{
+                alert('page属性不合法');
+                location.href='./'
+            }
         }else{
             page='./content/anime.html'
         }
