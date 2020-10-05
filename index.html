@@ -97,15 +97,16 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="//zafu-polaris.cn" style="padding: 5px;"><img src="img/logo.png" alt=""
-                        height="100%"></a>
+                        height="100%">
+                    ZAFU Polaris Security</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="anime" class="active"><a href="?page=anime">首页</a></li>
-                    <li class="introduction"><a href="?page=introduction">协会简介</a></li>
-                    <li class=""><a href="">招新问题</a></li>
-                    <li class=""><a href="">入门指南</a></li>
-                    <li class=""><a href="">主要成员</a></li>
+                    <li><a href="?page=anime">首页</a></li>
+                    <li><a href="?page=introduction">协会简介</a></li>
+                    <li><a href="?page=recruit">招新问题</a></li>
+                    <li><a href="?page=manual">入门指南</a></li>
+                    <li><a href="?page=staff">主要成员</a></li>
                 </ul>
             </div>
         </div>
@@ -113,13 +114,7 @@
     <iframe id="contentFrame" src="" width="100%"frameborder="0" scrolling="auto" style="height: calc(100vh - 51px);margin-top: 51px;"></iframe>
     <script>
         if (page=getUrlParam('page')) {
-            trustedPath=['anime','introduction']
-            if (trustedPath.indexOf(page)>-1) {
-                page='./content/'+page+'.html'
-            }else{
-                alert('page属性不合法');
-                location.href='./'
-            }
+            page='./content/'+page+'.html'
         }else{
             page='./content/anime.html'
         }
